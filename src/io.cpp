@@ -100,7 +100,7 @@ void get_polygon_lifted_gml(std::wostream& of, Polygon2* p2, double height, bool
   auto r = p2->outer();
   of << "<gml:exterior>";
   of << "<gml:LinearRing>";
-  of << "<gml:posList>";
+  of << "<gml:posList srsDimension='3'>";
   for (int i = 0; i < r.size(); i++)
     of << bg::get<0>(r[i]) << " " << bg::get<1>(r[i]) << " " << height << " ";
   of << bg::get<0>(r[0]) << " " << bg::get<1>(r[0]) << " " << height;
@@ -112,7 +112,7 @@ void get_polygon_lifted_gml(std::wostream& of, Polygon2* p2, double height, bool
   for (Ring2& r : irings) {
     of << "<gml:interior>";
     of << "<gml:LinearRing>";
-    of << "<gml:posList>";
+    of << "<gml:posList srsDimension='3'>";
     for (int i = 0; i < r.size(); i++)
       of << bg::get<0>(r[i]) << " " << bg::get<1>(r[i]) << " " << height << " ";
     of << bg::get<0>(r[0]) << " " << bg::get<1>(r[0]) << " " << height;
@@ -131,7 +131,7 @@ void get_extruded_line_gml(std::wostream& of, Point2* a, Point2* b, double high,
   of << "<gml:Polygon>";
   of << "<gml:exterior>";
   of << "<gml:LinearRing>";
-  of << "<gml:posList>";
+  of << "<gml:posList srsDimension='3'>";
   of << bg::get<0>(b) << " " << bg::get<1>(b) << " " << low << " ";
   of << bg::get<0>(a) << " " << bg::get<1>(a) << " " << low << " ";
   of << bg::get<0>(a) << " " << bg::get<1>(a) << " " << high << " ";

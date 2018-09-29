@@ -899,14 +899,14 @@ void TopoFeature::get_triangle_as_gml_surfacemember(std::wostream& of, Triangle&
   of << "<gml:exterior>";
   of << "<gml:LinearRing>";
   if (verticalwall == false) {
-    of << "<gml:posList>"
+    of << "<gml:posList srsDimension='3'>"
       << _vertices[t.v0].second << " "
       << _vertices[t.v1].second << " "
       << _vertices[t.v2].second << " "
       << _vertices[t.v0].second << "</gml:posList>";
   }
   else {
-    of << "<gml:posList>"
+    of << "<gml:posList srsDimension='3'>"
       << _vertices_vw[t.v0].second << " "
       << _vertices_vw[t.v1].second << " "
       << _vertices_vw[t.v2].second << " "
@@ -927,7 +927,7 @@ void TopoFeature::get_floor_triangle_as_gml_surfacemember(std::wostream& of, Tri
   std::stringstream ss;
   ss << std::fixed << std::setprecision(3);
   // replace z of the vertices with baseheight
-  ss << "<gml:posList>"
+  ss << "<gml:posList srsDimension='3'>"
     << _vertices[t.v0].second.substr(0, _vertices[t.v0].second.find_last_of(" ") + 1) << z_to_float(baseheight) << " "
     << _vertices[t.v2].second.substr(0, _vertices[t.v2].second.find_last_of(" ") + 1) << z_to_float(baseheight) << " "
     << _vertices[t.v1].second.substr(0, _vertices[t.v1].second.find_last_of(" ") + 1) << z_to_float(baseheight) << " "
@@ -945,7 +945,7 @@ void TopoFeature::get_triangle_as_gml_triangle(std::wostream& of, Triangle& t, b
   of << "<gml:exterior>";
   of << "<gml:LinearRing>";
   if (verticalwall == false) {
-    of << "<gml:posList>"
+    of << "<gml:posList srsDimension='3'>"
       << _vertices[t.v0].second << " "
       << _vertices[t.v1].second << " "
       << _vertices[t.v2].second << " "
